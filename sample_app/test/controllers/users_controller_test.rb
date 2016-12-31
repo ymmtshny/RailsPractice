@@ -1,6 +1,9 @@
 require 'test_helper'
 
-class UserControllerTest < ActionDispatch::IntegrationTest
+class UsersControllerTest < ActionDispatch::IntegrationTest
+  # test "the truth" do
+  #   assert true
+  # end
 
   def setup
     @base_title = "Ruby on Rails Tutorial Sample App"
@@ -11,5 +14,4 @@ class UserControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select "title", "Sign Up | #{@base_title}"
   end
-
 end
