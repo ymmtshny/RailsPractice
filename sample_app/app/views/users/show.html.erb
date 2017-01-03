@@ -14,6 +14,17 @@
       <%= gravatar_for @user, size:150 %>
     </section>
   </aside>
+  <main class = "col-md-8">
+    <div class = "micropost">
+      <% @microposts.each do |post| %>
+          <%= gravatar_for post.user, size:50 %>
+          <p><%= post.created_at %></p>
+          <h2><%= post.context %></h2>
+          <%= link_to 'delete', post, method: :delete, data: {confirm:'Are you sure?'} %>
+      <% end %>
+    </div>
+    <%= will_paginate @microposts %>
+  </main>
 </div>
 
 
