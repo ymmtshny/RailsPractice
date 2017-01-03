@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+  def index
+    @users = User.paginate(page: params[:page])
+  end
+
   def new
     @user = User.new
   end
@@ -7,6 +11,16 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     # debugger
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def destroy
+    User.find_by(id:params[:id]).destroy
+    flash[:success] = "User deleted"
+    redirect_to users_url
   end
 
   def create
@@ -20,6 +34,17 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       render 'new'
+    end
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      # 更新に成功した場合を扱う。
+      flash[:success] = '編集に成功しました。'
+      redirect_to @user
+    else
+      render 'edit'
     end
   end
 

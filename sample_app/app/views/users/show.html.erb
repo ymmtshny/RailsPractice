@@ -2,20 +2,20 @@
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-      <h1>
-        <%= gravatar_for @user, size:50 %>
-        <%= @user.name %>
-      </h1>
+      <h1><%= @user.name %></h1>
+      <ul>
+        <li>id: <%= @user.id %></li>
+        <li>name: <%= @user.name %></li>
+        <li>e-mail: <%= @user.email %></li>
+        <li>admin: <%= @user.admin %></li>
+        <li>created_at: <%= @user.created_at %></li>
+        <li>updated_at: <%= @user.updated_at %></li>
+      </ul>
+      <%= gravatar_for @user, size:150 %>
     </section>
   </aside>
 </div>
 
-<ul>
-  <li>id: <%= @user.id %></li>
-  <li>name: <%= @user.name %></li>
-  <li>e-mail: <%= @user.email %></li>
-  <li>created_at: <%= @user.created_at %></li>
-  <li>updated_at: <%= @user.updated_at %></li>
-</ul>
+
 
 
